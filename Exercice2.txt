@@ -1,0 +1,47 @@
+Classe Point
+
+Debut
+	x: entier
+	y: entier
+	
+	Fonction Point(x1: entier, y1:entier)
+	debut
+		x => x1
+		y => y1
+	fin
+	
+	
+	Fonction getX(): entier
+	debut
+		return x
+	fin
+	
+	Fonction setX(x: entier)
+	debut
+		x => x
+	fin
+	
+	Fonction getY(): entier
+	debut
+		return y
+	fin
+	
+	Fonction setY(y: entier)
+	debut
+		y => y
+	fin
+	
+	Fonction toString:chaine
+	debut
+		return "Point: x = "+x+", y = "+y
+	fin
+	
+Fin
+
+
+point.Point(2,3)
+point.getX()  //resultat: 2
+point.setX(3)
+point.getY()  //resultat: 3
+point.setY(5)
+point.toString()  //resultat: Point: x=3, y=5

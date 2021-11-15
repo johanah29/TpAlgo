@@ -1,0 +1,37 @@
+Classe Circle
+
+Debut
+	point: Point
+	radius: entier
+	
+	Fonction Circle(p: Point, r: entier)
+	debut
+		point => p
+		radius => r
+	fin
+	
+	Fonction area(): reel
+	debut
+		return radius * radius * 3.14
+	fin
+	
+	Fonction containsPoint(p: Point): booleen
+	debut
+		Si ( Math.sqrt(Math.pow(p.getX-point.getX,2) + Math.pow(p.getY-point.getY,2)) < radius ) alors
+			return true
+		sinon
+			return false
+		fin
+	fin
+	
+	Fonction toString:chaine
+	debut
+		return "Circle: point = "+point+", radius = "+radius
+	fin
+	
+Fin
+
+circle.Circle((2,1),3)
+circle.area    //resultat: 28.26
+circle.containsPoint(2,0)   //resultat: true
+circle.toString()  //resultat: Circle: point=x=2,y=1, radius=3

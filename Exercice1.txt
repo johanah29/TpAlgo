@@ -1,0 +1,61 @@
+Classe Hippopotamus
+
+Debut
+
+	name: chaine
+	weight: reel
+	tusksSize: reel
+		
+	Fonction Hippopotamus(n:chaine, w:reel, t:reel)
+	debut
+		name => n
+		weight => w
+		tusksSize => t
+	fin
+	
+		
+	Fonction swim()
+	debut
+		weight => weight-300
+	fin
+		
+	Fonction eat()
+	debut
+		weight => weight+1000
+	fin
+		
+	Function hippopotamusFight(hippopotamus Hippopotamus)
+	debut
+		Si(hippopotamus.tusksSize > tusksSize) alors
+			Ecrire (hippopotamus.name+" is the winner")
+		sinon
+			Ecrire(name+" is the winner")
+		fin
+	fin
+	
+	Function toString:chaine
+	debut
+		return "Hippopotamus: name = "+name+", weight = "+weight+", tusksSize = "+tusksSize
+	fin
+	
+Fin
+
+
+hippo1.Hippopotamus("larry", 1200000.3, 5.3)
+hippo2.Hippopotamus("nestor", 1400000.1, 6.0)
+hippo1.hippopotamusFight(hippo2)  //resultat: nestor is the winner
+
+
+hippo.Hippopotamus("Gary", 1000000, 2.5)
+i: entier
+Pour (i allant de 1 à 504) faire
+	Pour (i allant de 1 à 15) faire
+		hippo.eat()
+		hippo.eat()
+		hippo.swim()
+		hippo.swim()
+		hippo.swim()
+	fin
+	hippo.toString()
+fin
+	
