@@ -1,0 +1,89 @@
+Classe Client
+
+Debut 
+	clientNumber: entier
+	clientPassword: entier
+	clientFirstName: chaine
+	clientLastName: chaine
+	clientAdress: chaine
+	clientRIB: entier
+	clientIBAN: chaine
+	clientBIC: chaine
+	clientBalance: reel
+	
+	Fonction Client(number:entier, password:chaine, firstName:chaine, lastName:chaine, adress:chaine, rib:chaine, iban:chaine, bic:chaine, balance:reel)
+	debut
+		clientNumber => number
+		clientPassword => password
+		clientFirstName => firstName
+		clientLastName => lastName
+		clientAdress => adress
+		clientRIB => rib
+		clientIBAN => iban
+		clientBIC => bic
+		clientBalance => balance
+	fin
+	
+	Fonction authenticate (clientNumber:entier, clientPassword:entier) : booleen
+	variable code: entier
+	debut
+		Recevoir SMS avec code unique
+		Ecrire ("Saisissez le code unique reçu par SMS")
+		Lire(code)
+		Si (code est correct) alors
+			retourner true
+		sinon
+			retourner false
+		fin
+	fin
+	
+	Fonction sendMoney(contact:Contact, montant:reel): chaine
+	variable codePays:chaine
+	debut
+		Si (montant>clientBalance) alors
+			retourner "Solde insuffisant"
+		sinon
+			codePays => contact.contactIBAN(0,2)
+			Si (codePays == "FR") alors
+				transferer montant à contact
+				clientBalance => clientBalance - montant
+				return "Argent envoye"
+			sinon si (codePays == "US")
+				montant => montant * 1.13
+				transferer montant à contact
+				clientBalance => clientBalance - montant
+				return "Argent envoye"
+			sinon si (codePays == "CM")
+				montant => montant * 657.12
+				transferer montant à contact
+				clientBalance => clientBalance - montant
+				return "Argent envoye"
+			sinon si (codePays == "KE")
+				montant => montant * 126.79
+				transferer montant à contact
+				clientBalance => clientBalance - montant
+				return "Argent envoye"
+				//prevoir les autres monnaies
+			fin si
+				
+		fin si	
+	fin	
+	
+	Fonction chat(conseiller:Conseiller)
+	variables  message:chaine
+	debut 
+		Ecrire ("Saisissez le message")
+		Lire (message)
+		Envoyer le message au conseiller
+	fin
+	
+Fin
+
+client.Client(44210547,321,"Marie", "Larry", "70 Avenue du general Degaulle","30040111000000000000", "FR00000000000000000", "bnp","BNPA",82.5)
+client.authenticate(44210547,321) //resultat: true
+
+contact.Contact("sarah", "Sarah Allen", "sogec","CM00000000000000000","SOGECAM")
+client.sendMoney(contact,40.5) //40.5<82.5 donc on a la conversion 40.5*657.12=26613.36 qui est la somme envoyée. Donc resultat: Argent envoye
+
+conseiller.Conseiller(client,"Rose")
+client.chat(conseiller)  //resultat: le messagege est envoye

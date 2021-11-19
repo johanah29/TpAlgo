@@ -1,0 +1,48 @@
+Classe Contact
+
+Debut
+
+	contactNumber: entier
+	contactLabel: chaine
+	contactName: chaine
+	contactBank: chaine
+	contactIBAN: chaine
+	contactBIC: chaine
+
+
+	Fonction Contact(label:chaine, name:chaine, bank:chaine, iban:chaine, bic:chaine)
+	debut
+		contactLabel => label
+		contactName => name
+		contactBank => bank
+		contactIBAN => iban
+		contactBIC => bic
+	fin
+	
+	Fonction modifContact(number: entier, label:chaine, name:chaine, bank:chaine, iban:chaine, bic:chaine)
+	debut
+		contactLabel => label
+		contactName => name
+		contactBank => bank
+		contactIBAN => iban
+		contactBIC => bic
+	fin
+	
+	Fonction afficheContact(number:entier)
+	debut
+		return "Contact: label = "+contactLabel+", name = "+contactName+", bank = "+contactBank+", iban = "+contactIBAN+", bic = "+contactBIC
+	fin
+	
+	Fonction supprimeContact(number:entier)
+	debut
+		suppression du contact
+	fin
+	
+Fin
+	
+	
+contact.Contact("alice", "Alice Meyer", "bnp","FR00000000000000000","BNPA")
+contact.modifContact(1,"alice", "Alice Meyer Stell", "bnp","FR00000000000000000","BNPA")
+contact.afficheContact(1) //resultat: Contact: contactLabel = alice, name = Alice Meyer Stell, bank = bnp, iban = FR00000000000000000, bic = BNPA
+
+contact.supprimeContact(1) // le contact est supprime

@@ -1,0 +1,11 @@
+Classe  Conseiller
+
+Debut
+	clients[0..n]:Client
+	conseillerName: chaine
+	
+	Fonction Conseiller(client:Client,name:entier)
+	debut
+		clients.push(client)
+		conseillerName => name
+Fin
